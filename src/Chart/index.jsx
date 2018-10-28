@@ -1,6 +1,20 @@
 import { createElement, PureComponent } from 'react';
 import { bool, string, shape } from 'prop-types';
+import styled from 'styled-components';
 import Datafeed from '~/api';
+
+const Wrapper = styled.div`
+  margin: auto;
+  width: calc(100vw - 20px);
+
+  ${({ closed }) => (closed ? `
+    padding: 10px;
+    height: calc(100vh - 50px);
+  ` : `
+    padding: 10px;
+    height: calc(100vh - 130px);
+  `)}
+`;
 
 function getLanguageFromURL() {
   const regex = new RegExp('[\\?&]lang=([^&#]*)');
@@ -10,6 +24,7 @@ function getLanguageFromURL() {
 
 export default class TVChartContainer extends PureComponent {
   static propTypes = {
+    closed: bool.isRequired,
     symbol: string,
     interval: string,
     containerId: string,
@@ -91,8 +106,8 @@ export default class TVChartContainer extends PureComponent {
   }
 
   render() {
-    const { containerId } = this.props;
+    const { closed, containerId } = this.props;
 
-    return <div id={containerId} />;
+    return <Wrapper id={containerId} closed={closed} />;
   }
 }
