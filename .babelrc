@@ -1,0 +1,24 @@
+{
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties",
+    ["@babel/plugin-transform-react-jsx", {
+      "pragma": "createElement",
+      "pragmaFrag": "Fragment",
+      "throwIfNamespace": false
+    }],
+    ["@babel/plugin-proposal-object-rest-spread", { "useBuiltIns": true }],
+    ["@babel/plugin-transform-runtime", { "corejs": 2 }]
+  ],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": ["last 2 versions", "> 10%", "ie 9"]
+        }
+      }
+    ],
+    "@babel/preset-react"
+  ]
+}
