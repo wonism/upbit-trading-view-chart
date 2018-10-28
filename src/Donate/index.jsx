@@ -1,6 +1,5 @@
 import { createElement, Fragment } from 'react';
 import { bool, func } from 'prop-types';
-import GoogleAds from 'react-google-ads';
 import styled from 'styled-components';
 
 const Address = styled.div`
@@ -42,11 +41,6 @@ const Donate = ({ closed, handleClick }) => (
         </Address>
       </>
     )}
-    <GoogleAds
-      client="pub-1777052704513089"
-      slot="6579575865"
-      style={{ display: 'inline-block', width: '100%' }}
-    />
   </>
 );
 
