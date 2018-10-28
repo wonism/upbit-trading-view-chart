@@ -59,11 +59,13 @@ export const updateBar = (resolution, lastBar, data) => {
   return updatedBar;
 };
 
+let ws;
+
 export default {
   subscribeBars(symbolInfo, resolution, updateCb, uid /* , resetCache */) {
     const channelString = createChannelString(symbolInfo);
     const socketUrl = 'wss://api.upbit.com/websocket/v1';
-    const ws = new WebSocket(socketUrl);
+    ws = new WebSocket(socketUrl);
 
     ws.endpoint = socketUrl;
     ws.onopen = () => {
@@ -92,5 +94,7 @@ export default {
       reader.readAsText(message.data);
     };
   },
-  unsubscribeBars() {},
+  unsubscribeBars() {
+    ws.close();
+  },
 };

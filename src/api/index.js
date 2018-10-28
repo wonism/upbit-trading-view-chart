@@ -1,7 +1,17 @@
 import historyProvider from './historyProvider';
 import stream from './stream';
 
-const supportedResolutions = ['1', '3', '5', '15', '30', '60', '120', '240', 'D'];
+const supportedResolutions = [
+  '1',
+  '3',
+  '5',
+  '15',
+  '30',
+  '60',
+  '120',
+  '240',
+  'D',
+];
 
 const config = {
   supported_resolutions: supportedResolutions,
@@ -50,8 +60,8 @@ export default {
   subscribeBars: (symbolInfo, resolution, onRealtimeCallback, subscribeUID, onResetCacheNeededCallback) => {
     stream.subscribeBars(symbolInfo, resolution, onRealtimeCallback, subscribeUID, onResetCacheNeededCallback);
   },
-  unsubscribeBars: (subscriberUID) => {
-    stream.unsubscribeBars(subscriberUID);
+  unsubscribeBars: (/* subscriberUID */) => {
+    stream.unsubscribeBars();
   },
   calculateHistoryDepth: resolution => (resolution < 60 ? { resolutionBack: 'D', intervalBack: '1' } : undefined),
   getMarks: (/* symbolInfo, startDate, endDate, onDataCallback, resolution */) => {},

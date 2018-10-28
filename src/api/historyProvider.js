@@ -17,7 +17,11 @@ export default {
   history,
   getBars: async (symbolInfo, resolution, _from, _to, first, limit) => {
     const [, counter, base] = symbolInfo.name.split(/[:/]/);
-    const pathname = resolution === '1D' ? '/candles/days' : '/candles/minutes/1';
+    const pathname = resolution.includes('1D')
+      ? '/candles/days'
+      : resolution < 60
+        ? '/candles/minutes/1'
+        : '/candles/minutes/60';
     const to = first ? '' : `&to=${parseDate(history[symbolInfo.name].prev)}`;
     const url = `${apiRoot}${pathname}?market=${base}-${counter}&count=${limit}${to}`;
 
