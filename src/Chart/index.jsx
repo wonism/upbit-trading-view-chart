@@ -92,11 +92,11 @@ const StyledDropdown = styled(Dropdown)`
   z-index: 999;
   ${({ darkMode }) => (darkMode ? `
     color: #fff;
-    background-color: #131722;
+    background-color: rgba(19, 23, 23, .4);
     border: 1px solid #fff;
   ` : `
     color: #131722;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, .4);
     border: 1px solid #131722;
   `)}
 
