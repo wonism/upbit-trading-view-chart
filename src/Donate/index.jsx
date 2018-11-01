@@ -1,28 +1,19 @@
 import { createElement, Fragment } from 'react';
 import { bool, func } from 'prop-types';
 import styled from 'styled-components';
+import Button from '~/Button';
 
 const Address = styled.div`
   font-family: 'Source Code Pro', monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
-const Button = styled.button`
-  padding: 0;
-  line-height: 20px;
-  color: #1882C5;
-  background-image: none;
-  background-color: transparent;
-  border: 0;
-  outline: 0;
-  font-family: sans-serif;
-  font-size: 16px;
-  text-decoration: underline;
-`;
-
-const Donate = ({ closed, handleClick }) => (
+const Donate = ({ closed, darkMode, handleClick }) => (
   <>
-    <Button type="button" onClick={handleClick}>
-      {closed ? '펼치기' : '접기'}
+    <Button type="button" onClick={handleClick} darkMode={darkMode}>
+      {closed ? '기부 펼치기' : '기부 접기'}
     </Button>
     {closed ? null : (
       <>
@@ -46,6 +37,7 @@ const Donate = ({ closed, handleClick }) => (
 
 Donate.propTypes = {
   closed: bool.isRequired,
+  darkMode: bool.isRequired,
   handleClick: func.isRequired,
 };
 
