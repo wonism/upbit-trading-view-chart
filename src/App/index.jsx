@@ -130,9 +130,11 @@ export default class App extends PureComponent {
             마켓 리스트 다시 불러오기
           </Button>
         ) : null}
-        <Button type="button" onClick={this.showMultipleCharts} darkMode={darkMode}>
-          멀티 차트
-        </Button>
+        {null && (
+          <Button type="button" onClick={this.showMultipleCharts} darkMode={darkMode}>
+            멀티 차트
+          </Button>
+        )}
         <Button type="button" onClick={this.changeTheme} darkMode={darkMode}>
           테마 변경(흑/백)
         </Button>

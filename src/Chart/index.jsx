@@ -93,9 +93,11 @@ const StyledDropdown = styled(Dropdown)`
   ${({ darkMode }) => (darkMode ? `
     color: #fff;
     background-color: #131722;
+    border: 1px solid #fff;
   ` : `
     color: #131722;
     background-color: #fff;
+    border: 1px solid #131722;
   `)}
 
   &.is-open {
@@ -136,8 +138,6 @@ function getLanguageFromURL() {
   return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, ' '));
 }
 
-let widget;
-
 export default class TVChartContainer extends PureComponent {
   static propTypes = {
     closed: bool.isRequired,
@@ -176,6 +176,8 @@ export default class TVChartContainer extends PureComponent {
     autosize: true,
     studiesOverrides: {},
   };
+
+  static widget = null;
 
   constructor(props) {
     super(props);
@@ -224,8 +226,10 @@ export default class TVChartContainer extends PureComponent {
       studies_overrides: studiesOverrides,
     };
 
-    widget = new window.TradingView.widget(widgetOptions);
-    widget.onChartReady(() => {});
+    const { TradingView } = window;
+
+    TVChartContainer.widget = new TradingView.widget(widgetOptions);
+    TVChartContainer.widget.onChartReady(() => {});
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -233,11 +237,11 @@ export default class TVChartContainer extends PureComponent {
     const { symbol } = this.state;
 
     if (prevState.symbol !== symbol) {
-      widget.setSymbol(symbol, interval, () => {});
+      TVChartContainer.widget.setSymbol(symbol, interval, () => {});
     }
 
     if (prevProps.darkMode !== darkMode) {
-      widget.changeTheme(darkMode ? 'Dark' : 'Light');
+      TVChartContainer.widget.changeTheme(darkMode ? 'Dark' : 'Light');
     }
   }
 
