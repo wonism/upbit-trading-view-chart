@@ -1,20 +1,29 @@
 import 'babel-polyfill';
 import 'whatwg-fetch';
-import '~/pwa';
 import { createElement } from 'react';
 import { render } from 'react-dom';
-import firebase from 'firebase/app';
 import App from '~/App';
 
-const config = {
-  apiKey: 'AIzaSyBP67RbSONRWIKKkkQb1XixHxSo5sO3GHA',
-  authDomain: 'upbit-trading-view.firebaseapp.com',
-  databaseURL: 'https://upbit-trading-view.firebaseio.com',
-  projectId: 'upbit-trading-view',
-  storageBucket: 'upbit-trading-view.appspot.com',
-  messagingSenderId: '780056023795',
-};
-
-firebase.initializeApp(config);
+/*
+setTimeout(() => {
+  (async function () {
+    await fetch('https://fcm.googleapis.com/fcm/send', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: 'key=AAAAtZ72UvM:APA91bFOa6HxpNcMtckhZURy0d99-c62F5_DfoFG0QQWx1oxpapJshTn-gDujwBHaK5B1ODwoJ32xcF14mQY1Ljq-nidTNU0EJaKHDN1z_fEP5WrEk1pNYdGAUlpM0cAilygn0yW9iTE',
+      },
+      body: JSON.stringify({
+        notification: {
+          title: 'Hello',
+          body: 'World',
+        },
+        to: localStorage.getItem('user-token'),
+      }),
+    });
+  })();
+}, 2000);
+*/
 
 render(<App />, document.getElementById('app-root'));

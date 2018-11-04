@@ -3,6 +3,9 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="shortcut icon" href="/icon-192x192.png">
+  <link rel="apple-touch-icon image_src" href="/icon-192x192.png">
+  <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#131722"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Upbit Trading View Chart" />
@@ -10,7 +13,7 @@
   <meta property="og:title" content="Upbit Trading View Chart" />
   <meta property="og:site_name" content="Upbit Trading View Chart" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/btc.pnb" />
+  <meta property="og:image" content="/icon-192x192.png" />
   <meta property="og:description" content="Upbit Trading View Chart" />
   <meta property="og:locale" content="ko_KR" />
   <title>Upbit Trading View Chart</title>
@@ -24,6 +27,39 @@
     gtag('js', new Date());
     gtag('config', 'UA-128507670-1');
   </script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase-app.js"></script>
+  <script>
+    // Initialize Firebase
+    const config = {
+      apiKey: 'AIzaSyBP67RbSONRWIKKkkQb1XixHxSo5sO3GHA',
+      // authDomain: 'upbit-trading-view.firebaseapp.com',
+      // databaseURL: 'https://upbit-trading-view.firebaseio.com',
+      projectId: 'upbit-trading-view',
+      // storageBucket: 'upbit-trading-view.appspot.com',
+      // messagingSenderId: '780056023795',
+    };
+
+    firebase.initializeApp(config);
+
+    /*
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(function callback() {});
+
+      const messaging = firebase.messaging();
+
+      messaging
+        .requestPermission()
+        .then(function callback() {
+          return messaging.getToken();
+        })
+        .then(function callback(token) {
+          localStorage.setItem('user-token', token);
+        })
+        .catch(function catchError(err) {});
+    }
+    */
+  </script>
   <script type="text/javascript" src="/charting_library.min.js"></script>
-<script type="text/javascript" src="/assets/javascripts/590c8f0eda930fd4566f/bundle-app.js"></script><script type="text/javascript" src="/assets/javascripts/590c8f0eda930fd4566f/bundle-vendor.js"></script></body>
+<script type="text/javascript" src="/assets/javascripts/903b344b7bd3e260a25a/bundle-app.js"></script><script type="text/javascript" src="/assets/javascripts/903b344b7bd3e260a25a/bundle-vendor.js"></script></body>
 </html>

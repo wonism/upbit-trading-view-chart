@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --config webpack.config.js --hot --host 0.0.0.0",
-    "clean": "rm -r public/assets/javascripts",
+    "clean": "mkdir -p public/assets/javascripts && rm -r public/assets/javascripts",
     "build": "npm run clean && NODE_ENV=production webpack -p --config webpack.config.js",
+    "serve": "npx http-server public",
+    "serve:https": "cd public && npx static-https-server",
     "lint": "eslint src/**/*.js || true",
     "format": "prettier-eslint --eslint-config-path ./.eslintrc.js --write",
     "deploy": "npm run build && npx firebase deploy",
@@ -53,6 +55,7 @@
     "webpack": "^4.23.1",
     "webpack-assets-manifest": "^3.1.0",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "^3.1.10",
+    "webpack-manifest-plugin": "^2.0.4"
   }
 }

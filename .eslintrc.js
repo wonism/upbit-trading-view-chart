@@ -1,5 +1,3 @@
-const isProduction = process.env.NODE_ENV === 'production';
-
 const off = 0;
 const warn = 1;
 const error = 2;
@@ -38,7 +36,7 @@ module.exports = {
     'max-len': [error, 200, { ignoreComments: true }],
     'new-cap': off,
     'no-alert': off,
-    'no-console': isProduction ? error : off,
+    'no-console': off,
     'no-multiple-empty-lines': [error, { max: error, maxEOF: error }],
     'no-implicit-coercion': error,
     'no-undef': off,

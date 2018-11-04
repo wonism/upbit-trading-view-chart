@@ -1,4 +1,1 @@
-{
-  "app.js": "assets/javascripts/590c8f0eda930fd4566f/bundle-app.js",
-  "vendor.js": "assets/javascripts/590c8f0eda930fd4566f/bundle-vendor.js"
-}
+{"name":"Upbit Trading View Chart","short_name":"Upbit Chart","icons":[{"src":"/icon-192x192.ico","sizes":"192x192","type":"image/png"},{"src":"/icon-256x256.ico","sizes":"256x256","type":"image/ico"},{"src":"/icon-128x128.ico","sizes":"128x128","type":"image/ico"},{"src":"/icon-64x64.ico","sizes":"64x64","type":"image/ico"},{"src":"/icon-32x32.ico","sizes":"32x32","type":"image/ico"},{"src":"/icon-16x16.ico","sizes":"16x16","type":"image/ico"}],"start_url":"/index.html","gcm_sender_id":"103953800507","display":"standalone","background_color":"#131722","theme_color":"#131722","app.js":"/assets/javascripts/903b344b7bd3e260a25a/bundle-app.js","vendor.js":"/assets/javascripts/903b344b7bd3e260a25a/bundle-vendor.js","index.html":"/index.html"}
